@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,6 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, updatable = false)
     private long id;
     @Column(name = "name")
@@ -20,12 +21,22 @@ public class User {
     private String phone;
     @Column(name = "website")
     private String website;
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(unique = true)
     private Address address;
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(unique = true)
     private Company company;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -35,11 +46,11 @@ public class User {
         this.name = name;
     }
 
-    public String getusername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setusername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -59,11 +70,11 @@ public class User {
         this.phone = phone;
     }
 
-    public String getwebsite() {
+    public String getWebsite() {
         return website;
     }
 
-    public void setwebsite(String website) {
+    public void setWebsite(String website) {
         this.website = website;
     }
 

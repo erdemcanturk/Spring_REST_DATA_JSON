@@ -22,6 +22,22 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private User user;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
     public String getStreet() {
         return street;
     }

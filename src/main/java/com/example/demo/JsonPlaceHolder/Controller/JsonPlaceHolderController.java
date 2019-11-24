@@ -17,7 +17,12 @@ public class JsonPlaceHolderController {
     @GetMapping("/getAllDatas")
     public String getAllDatas() throws ParseException {
         jsonPlaceHolderManager.getAllUsers();
+
+        jsonPlaceHolderManager.userAlbums();
+
+        jsonPlaceHolderManager.userPhotos();
         return "Datalar Çekildi";
     }
+
 
 }
