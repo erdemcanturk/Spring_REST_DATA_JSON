@@ -77,22 +77,22 @@ public class ApiController {
 
         return allAlbumsRequestList;
     }
-
+    // SORU 4
     @PutMapping("/userAlbumsWithDetails")
-    public List<AllAlbumsRequest> getUserAlbums1(@RequestParam("userAlbumsWithDetails") long userAlbumsWithDetails) {
+    public List<Album> getUserAlbums1(@RequestParam("userAlbumsWithDetails") long userAlbumsWithDetails) {
 
-        List<Album> albumList = albumRepository.findAllByUser(userRepository.findById(userAlbumsWithDetails));
+        List<Album> albumList1 = albumRepository.findAllByUser(userRepository.findById(userAlbumsWithDetails));
 
-        List<AllAlbumsRequest> allAlbumsRequestList = new ArrayList<>();
-        for (Album album : albumList
+
+        for (Album album : albumList1
         ) {
-            AllAlbumsRequest allAlbumsRequest = new AllAlbumsRequest();
-            allAlbumsRequest.setId(album.getId());
-            allAlbumsRequest.setTitle(album.getTitle());
+            Album album1 = new Album();
+            album1.setId(album1.getId());
+            album1.setTitle(album1.getTitle());
 
         }
 
-        return allAlbumsRequestList;
+        return albumList1;
     }
 }
 
